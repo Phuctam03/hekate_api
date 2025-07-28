@@ -47,7 +47,7 @@ Dựa trên các API được yêu cầu, cơ sở dữ liệu cần hỗ trợ:
 
 ## Cách Test Api với postman
 
-+Kiểm tra hàng tồn kho:
+## Kiểm tra hàng tồn kho:
 
 -API:http://localhost:8080/api/stock/check?productId=2&warehouseId=1&quantity=10
 
@@ -57,7 +57,7 @@ Dựa trên các API được yêu cầu, cơ sở dữ liệu cần hỗ trợ:
 
 +quantity: số lượng đáp ứng của sản phẩm trong kho hàng
 
-+Tạo đơn hàngL
+## Tạo đơn hàng
 
 -API:http://localhost:8080/api/orders/create
 
@@ -80,13 +80,13 @@ thêm dữ liệu json body
 
 +promotionsIds: các id mã giảm giá áp dụng cho đơn hàng
 
-+Lấy các khuyến mãi hiện hành
+## Lấy các khuyến mãi hiện hành
 
 -API:http://localhost:8080/api/promotions/current?totalAmount=600000
 
 +totalAmount: Tổng số tiền đơn hàng có thể giảm giá là phải tầm 6000000
 
-+Gửi Thông tin giao hàng
+## Gửi Thông tin giao hàng
 
 -API:http://localhost:8080/api/shipping/send
 
