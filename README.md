@@ -59,7 +59,55 @@ Dựa trên các chức năng được yêu cầu, cơ sở dữ liệu của h�
 <img width="1305" height="870" alt="image" src="https://github.com/user-attachments/assets/cdb76b49-139c-4ab1-aeab-505426b7ad88" />
 
 ## 🚀 Hướng dẫn Cài đặt & Chạy
+Bạn có hai cách để thiết lập và chạy dự án này:
 
+1.  **Chạy bằng Docker (Khuyến nghị):** Cách nhanh nhất và dễ dàng nhất, không cần cài đặt Java hay MySQL thủ công trên máy của bạn.
+2.  **Chạy trên máy cục bộ (Truyền thống):** Hữu ích khi bạn muốn phát triển và gỡ lỗi trực tiếp trên hệ điều hành của mình.
+
+---
+
+### Cách 1: Chạy bằng Docker & Docker Compose (Khuyến nghị)
+
+Phương pháp này sẽ tự động tạo và kết nối ứng dụng của bạn với một cơ sở dữ liệu MySQL, tất cả đều nằm trong các container biệt lập.
+
+#### Yêu cầu
+
+-   Đã cài đặt **Docker** và **Docker Compose**. [Tải tại đây](https://www.docker.com/get-started/)
+-   **Git**.
+
+#### Các bước thực hiện
+
+1.  **Clone repository về máy:**
+    ```bash
+    git clone https://github.com/Phuctam03/hekate_api.git
+    cd hekate_api
+    ```
+
+2.  **Khởi động ứng dụng và cơ sở dữ liệu:**
+    Chạy lệnh sau từ thư mục gốc của dự án:
+    ```bash
+    docker-compose up --build
+    ```
+    -   Lệnh này sẽ:
+        -   Xây dựng Docker image cho ứng dụng Spring Boot của bạn từ `Dockerfile`.
+        -   Tải về và khởi chạy một container MySQL.
+        -   Tự động kết nối ứng dụng của bạn với container database.
+    -   Để chạy ngầm, sử dụng `docker-compose up -d`.
+
+3.  **Kiểm tra:**
+    Sau khi các log đã ổn định, ứng dụng của bạn sẽ sẵn sàng tại `http://localhost:8080`.
+
+4.  **Dừng ứng dụng:**
+    Nhấn `Ctrl + C` trong cửa sổ terminal, hoặc chạy lệnh sau nếu bạn đã chạy ngầm:
+    ```bash
+    docker-compose down
+    ```
+
+---
+
+### Cách 2: Chạy trên máy cục bộ (Truyền thống)
+
+Sử dụng cách này nếu bạn muốn kiểm soát hoàn toàn môi trường phát triển trên máy của mình.
 Để thiết lập và chạy dự án này trên máy của bạn, vui lòng làm theo các bước dưới đây.
 
 ### 1. Yêu cầu hệ thống
