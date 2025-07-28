@@ -21,14 +21,11 @@ Hekate API được thiết kế để trở thành một hệ thống backend m
 
 ## 🛠️ Công nghệ sử dụng
 
-<<<<<<< HEAD
 - **Ngôn ngữ:** Java 17
 - **Framework:** Spring Boot
 - **Build Tool:** Apache Maven
 - **Database:** MySQL 8.0
 =======
-<img width="1299" height="829" alt="image" src="https://github.com/user-attachments/assets/7143f7cd-db79-410a-a111-6fadc1c594eb" />
->>>>>>> 6a21bc94cf7cbbef40c1a6a36af4f2f0ec1a055e
 
 ## 📂 Cấu trúc dự án
 
@@ -59,7 +56,7 @@ Dựa trên các chức năng được yêu cầu, cơ sở dữ liệu của h�
 
 ### Sơ đồ Cơ sở dữ liệu (ERD)
 
-![Sơ đồ Cơ sở dữ liệu](image.png)
+<img width="1305" height="870" alt="image" src="https://github.com/user-attachments/assets/cdb76b49-139c-4ab1-aeab-505426b7ad88" />
 
 ## 🚀 Hướng dẫn Cài đặt & Chạy
 
