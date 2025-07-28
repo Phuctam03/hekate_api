@@ -8,5 +8,5 @@ import java.util.List;
 public interface OrderService {
 
     Orders createOrder(String zaloUserId, List<OrderItemRequest> items,List<Integer> promotions);
-
+    Orders cancelOrder(Integer orderId);
 }

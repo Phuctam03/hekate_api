@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -12,6 +13,7 @@ public class OrderDetail {
     private Integer orderDetailId;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "order_id", nullable = false)
     private Orders order;
 
@@ -27,6 +29,9 @@ public class OrderDetail {
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal subtotal;
+
+    @Column(name = "warehouse_id")
+    private Integer warehouse_id;
 
     public OrderDetail(Integer orderDetailId, Orders order, Product product, Integer quantity, BigDecimal unitPrice, BigDecimal subtotal) {
         this.orderDetailId = orderDetailId;
@@ -53,4 +58,12 @@ public class OrderDetail {
     public void setUnitPrice(BigDecimal unitPrice) { this.unitPrice = unitPrice; }
     public BigDecimal getSubtotal() { return subtotal; }
     public void setSubtotal(BigDecimal subtotal) { this.subtotal = subtotal; }
+
+    public Integer getWarehouse_id() {
+        return warehouse_id;
+    }
+
+    public void setWarehouse_id(Integer warehouse_id) {
+        this.warehouse_id = warehouse_id;
+    }
 }

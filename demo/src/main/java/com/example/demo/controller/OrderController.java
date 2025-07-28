@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 
 import com.example.demo.Request.CreateOrderRequest;
+import com.example.demo.Request.OrderItemRequest;
 import com.example.demo.Request.ShippingRequest;
 import com.example.demo.entity.Delivery;
 import com.example.demo.entity.Inventory;
@@ -63,6 +64,26 @@ public class OrderController {
                 request.getEstimatedDeliveryDate()
         );
         return ResponseEntity.ok(delivery);
+    }
+
+
+    @PostMapping("/orders/{id}/cancel")
+    public ResponseEntity<Orders> cancelOrder(@PathVariable("id") Integer orderId) {
+        Orders cancelledOrder = orderService.cancelOrder(orderId);
+        return ResponseEntity.ok(cancelledOrder);
+    }
+    public static class CreateOrderRequest {
+        private String zaloUserId;
+        private List<OrderItemRequest> items;
+        private List<Integer> promotionIds;
+
+        // Getters and Setters
+        public String getZaloUserId() { return zaloUserId; }
+        public void setZaloUserId(String zaloUserId) { this.zaloUserId = zaloUserId; }
+        public List<OrderItemRequest> getItems() { return items; }
+        public void setItems(List<OrderItemRequest> items) { this.items = items; }
+        public List<Integer> getPromotionIds() { return promotionIds; }
+        public void setPromotionIds(List<Integer> promotionIds) { this.promotionIds = promotionIds; }
     }
 
 

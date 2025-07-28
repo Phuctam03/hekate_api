@@ -5,6 +5,7 @@ import com.example.demo.Exception.OrderException;
 import com.example.demo.Request.OrderItemRequest;
 import com.example.demo.entity.*;
 import com.example.demo.repository.*;
+import org.hibernate.query.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,6 +63,7 @@ public class OrderServiceImlp implements OrderService {
             detail.setQuantity(item.getQuantity());
             detail.setUnitPrice(product.getPrice());
             detail.setSubtotal(product.getPrice().multiply(BigDecimal.valueOf(item.getQuantity())));
+            detail.setWarehouse_id(item.getWarehouseId());
             orderDetails.add(detail);
             totalSubtotal = totalSubtotal.add(detail.getSubtotal());
 
@@ -80,4 +82,29 @@ public class OrderServiceImlp implements OrderService {
         orderDetailRepository.saveAll(orderDetails);
         return orders;
     }
+
+    @Override
+    public Orders cancelOrder(Integer orderId) {
+        Optional<Orders> orderOpt = orderRepository.findById(orderId);
+        if (orderOpt.isEmpty()) {
+            throw new RuntimeException("Order not found: " + orderId);
+        }
+        Orders order = orderOpt.get();
+
+        if (!order.getOrderStatus().equals("PENDING") && !order.getOrderStatus().equals("CONFIRMED")) {
+            throw new OrderException("Cannot cancel order in status: " + order.getOrderStatus());
+        }
+
+        // Cập nhật trạng thái đơn hàng
+        order.setOrderStatus("CANCELLED");
+        order.setUpdatedAt(LocalDateTime.now());
+
+        // Hoàn lại tồn kho
+        for (OrderDetail detail : order.getOrderDetails()) {
+            inventoryService.restock(detail.getProduct().getProductId(), detail.getWarehouse_id(), detail.getQuantity());
+        }
+
+        return orderRepository.save(order);
+    }
+
 }
