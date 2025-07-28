@@ -154,3 +154,8 @@ Sử dụng Maven Wrapper (`mvnw`) để chạy ứng dụng.
   .\mvnw.cmd spring-boot:run
   ```
 Sau khi chạy lệnh trên, ứng dụng sẽ được khởi động và máy chủ sẽ lắng nghe tại cổng mặc định là 8080. Bạn có thể truy cập vào `http://localhost:8080` để kiểm tra.
+ ### ⚠️ Lưu ý Quan trọng về Bảo mật
+
+> **Lưu ý:** Trong một môi trường sản phẩm thực tế (production), các thông tin nhạy cảm (secret keys) như mật khẩu cơ sở dữ liệu hoặc khóa API bắt buộc phải được quản lý một cách an toàn thông qua các biến môi trường (trong file `.env`) hoặc các công cụ quản lý bí mật chuyên dụng (ví dụ: HashiCorp Vault, AWS Secrets Manager...).
+> 
+> Tuy nhiên, vì lý do thời gian và để đơn giản hóa cho bản demo này, một vài chi tiết cấu hình có thể được đặt trực tiếp trong file `docker-compose.yml`. Vui lòng không áp dụng cách làm này cho các dự án thực tế.
