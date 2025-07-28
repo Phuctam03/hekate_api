@@ -16,7 +16,7 @@ Dựa trên các API được yêu cầu, cơ sở dữ liệu cần hỗ trợ:
 
 ## cơ sở dữ liệu
 
-![alt text](image.png)
+<img width="1299" height="829" alt="image" src="https://github.com/user-attachments/assets/7143f7cd-db79-410a-a111-6fadc1c594eb" />
 
 ## cách chạy
 
